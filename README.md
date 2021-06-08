@@ -18,12 +18,10 @@ const token = 'foo';
 
 (async () => {
 	const {body} = await got('https://sentry.io/api/0/projects/{organization_slug}/{project_slug}/events/', {
-		json: true,
 		headers: {
       'authorization': `Bearer ${token}`,
 		}
 	});
-
 	console.log(body);
 	//=> '[]'
 })();
@@ -40,3 +38,5 @@ const sentryGot = require('sentry-got');
 	//=> '[]'
 })();
 ```
+
+or pass `SENTRY_ENDPOINT` and `SENTRY_TOKEN` as environment variables.
